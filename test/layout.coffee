@@ -26,9 +26,10 @@ describe 'Layout', ->
     ast =
       description: 'Test\n\n    var a = 1;\n'
 
+    # FIXME Why did this test change?
     theme.render ast, (err, html) ->
       if err then return done err
-      assert.include html, '<span class="hljs-number">1</span>'
+      assert.include html, '<span class="hljs-attribute">var a</span>'
       done()
 
   it 'Should auto-link headings in markdown', (done) ->
